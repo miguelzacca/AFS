@@ -1,6 +1,6 @@
 # AFS attack
 
-Paste the contents of ```AFS.js``` into the devtools console on the target website.
+Redirection of sensitive form data to a remote server.
 
 ## Installation
 
