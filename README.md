@@ -1,10 +1,10 @@
 # AFS attack
 
-AFS, paste the contents of ```AFS.js``` into the devtools console on the target website.
+Paste the contents of ```AFS.js``` into the devtools console on the target website.
 
 ## Installation
 
-Certifique-se de iniciar o npm ```npm init```.
+Make sure you start npm ```npm init```.
 After that, install express ```npm install -g express``` and the express body-parser ```npm install express body-parser```.
 
 Also install the free ngrok and get your token.
