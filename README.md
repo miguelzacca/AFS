@@ -7,7 +7,7 @@ Redirection of sensitive form data to a remote server.
 Make sure you start npm ```npm init```.
 After that, install express ```npm install -g express``` and the express body-parser ```npm install express body-parser```.
 
-Also install the free ngrok and get your token. (https://ngrok.com)
+Also install the free ngrok and get your token. https://ngrok.com
 
 ## Use
 
