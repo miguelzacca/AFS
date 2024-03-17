@@ -18,6 +18,7 @@ Take the web link that ngrok provides "Forwarding", and place it inside the vari
 
 Finally, copy the contents of ```AFS.js``` and paste it into the target site's devtools console.
 
-## Legal Disclaimer
+## Disclaimer
 
-This repository contains code primarily focused on JavaScript DOM manipulation for educational or knowledge purposes. The author disclaims any responsibility for misuse, including for malicious or illegal activities. Users are advised to adhere to all applicable laws and regulations when using the code. The author shall not be liable for any damages arising from the use or misuse of the code. This repository is intended solely for educational and research purposes, and any unlawful activities are strictly prohibited.
+
+This repository contains code primarily focused on DOM manipulation with Javascript for educational or knowledge purposes. The author disclaims any responsibility for misuse and will not be responsible for any damages arising from the use or misuse of the code. This repository is intended solely for educational and research purposes, and any illegal activities are strictly prohibited.
