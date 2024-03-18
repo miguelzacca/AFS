@@ -16,7 +16,7 @@ Start the server that will receive the information
 ```npm
 npm run server
 ```
-After that start ngrok
+After that, in another terminal start ngrok
 ```npm
 npm run ngrok
 ```
