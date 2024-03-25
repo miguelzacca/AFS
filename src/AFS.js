@@ -1,6 +1,6 @@
 // CONTROL //
 
-const redirect_data = "https://2f85-200-146-211-233.ngrok-free.app";
+const redirect_data = "";
 
 // SCRIPT //
 
