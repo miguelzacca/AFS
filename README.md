@@ -1,6 +1,6 @@
 # AFS attack
 
-Redirection of sensitive form data to a remote server.
+Redirection of sensitive form data to a remote server. Self-XSS
 
 ## Installation
 
